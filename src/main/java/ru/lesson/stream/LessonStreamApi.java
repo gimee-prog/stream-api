@@ -139,7 +139,8 @@ public class LessonStreamApi {
      */
     public Map<Boolean, Long> task9(List<Employee> employees) {
         return   employees.stream()
-                .collect(Collectors.partitioningBy(employee -> employee.getRating() > 50, Collectors.counting()));
+                .collect(Collectors.partitioningBy(employee -> employee.getRating() > 50,
+                        Collectors.counting()));
     }
 
     /**
@@ -154,7 +155,8 @@ public class LessonStreamApi {
      */
     public Map<Boolean, String> task10(List<Employee> employees) {
         return  employees.stream()
-                .collect(Collectors.partitioningBy(employee -> employee.getRating() > 50, Collectors.mapping(Employee::getName)));
+                .collect(Collectors.partitioningBy(employee -> employee.getRating() > 50,
+                        Collectors.mapping(Employee::getName, Collectors.joining(", "))));
     }
 
 }
